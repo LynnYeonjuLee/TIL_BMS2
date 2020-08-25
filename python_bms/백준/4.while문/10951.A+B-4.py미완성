@@ -1,0 +1,6 @@
+A, B = map(int,input().split())
+
+while :
+        print(f'{A+B}')
+    elif B == 0:
+        break 

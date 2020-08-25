@@ -1,0 +1,12 @@
+T = int(input())
+for i in range(T):
+    answer = str(input())
+    count = 0
+    for j in range(len(answer)):
+        if answer[j] == 'O':
+            count += 1
+            while answer[j] =='0':  # 연속적으로 O가 나오면 하나 더 더해주는 부분이 틀린것 같다. 
+                count += 1
+        else:
+            count += 0
+    print(count)

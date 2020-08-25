@@ -1,0 +1,16 @@
+# A, B = map(int, input().split())
+# num3 = A*(B%10)
+# num4 = A*((B//10)%10)
+# num5 = A*(B//100)
+# num6 = num3 + num4 * 10 + num5 * 100
+# print(num3)
+# print(num4)
+# print(num5)
+# print(num6)
+# 런타임에러뜸 
+A, B = map(int, input().split())
+print(f'{A * (B % 10)}')
+print(f'{A * ((B // 10) % 10)}')
+print(f'{A * (B // 100)}')
+print(f'{A * B}')
+# 얘도 런타임에러뜸...
