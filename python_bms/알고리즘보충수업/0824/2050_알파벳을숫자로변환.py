@@ -1,0 +1,1 @@
+letters = str(input())
