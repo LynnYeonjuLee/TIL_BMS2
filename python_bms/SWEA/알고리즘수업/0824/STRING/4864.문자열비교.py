@@ -22,14 +22,26 @@
 #         print('1')
 #     else:
 #         print('0')
-T = input(int())
-for tc in range(1, T+1):
-    str1 = input()
-    str2 = input()
+# T = input(int())
+# for tc in range(1, T+1):
+#     str1 = input()
+#     str2 = input()
 
-    result = 0
-    for i in range(len(str2)-len(str1)+1):
-        if str2[i:i+len(str1)] == str1:
-            result = 1
+#     result = 0
+#     for i in range(len(str2)-len(str1)+1):
+#         if str2[i:i+len(str1)] == str1:
+#             result = 1
 
-    print('#%d %s'%(tc, result))
+#     print('#%d %s'%(tc, result))
+
+
+
+T = int(input())
+for TC in range(1, T+1):
+    str1 = str(input())
+    str2 = str(input())
+
+    if str1 in str2:
+        print("#%d %d" %(TC,1))
+    else :
+        print("#%d %d" %(TC,0))

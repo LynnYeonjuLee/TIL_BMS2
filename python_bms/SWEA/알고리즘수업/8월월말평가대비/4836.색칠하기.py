@@ -13,7 +13,7 @@ for tc in range(1, T+1):
     arr = [[0]*10 for _ in range(10)]
     N = int(input())
     nums_info = []
-    for i in range(N)
+    for i in range(N):
         nums = list(map(int,input().split()))
         nums_info.append(nums)
 
