@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>DTL for, if tags 연습</h1>
+  <h2>1. for tag</h2>
+  {% for menu in menus%}
+    {{ menu }}
+  {% endfor %}
+  <hr>
+
+  <!--numbering-->
+  {% for menu in menus %}
+    {{ forloop.counter }} : {{ menu }}
+  {% endfor %}
+  <hr>
+  {% for x in empty_list %}
+    {{ x }}
+  {% empty %}
+    <p>비어있어요!</p>
+  {% endfor %}
+
+  <hr>
+  <h2>2. if tag</h2>
+  {% if '초밥' in menus %}
+    <p> 초밥은 메뉴에 있당ㅎ</p>
+  {% endif %}
+  <hr>
+  {% if empty_list|length > 10 %}
+    <p>길이가 10보다 크네용</p>
+  {% else %}
+    <p>길이가 10보다 작네용</p>
+  {% endif %}
+</body>
+</html>
