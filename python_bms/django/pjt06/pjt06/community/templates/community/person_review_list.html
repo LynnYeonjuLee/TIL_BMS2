@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center">REVIEWS</h1>
+
+{% for review in reviews %}
+<div class="container">
+  <a href="{% url 'community:review_detail' review.pk %}">{{ review.title }}</a>
+  <p>{{ review.movie_title }}</p>
+  <p>{{ review.rank }}</p>
+  <p>{{ review.content }}</p>
+  <p>작성자: <a href="{% url 'accounts:profile' review.user.username %}">{{ review.user }}</a></p>
+  <hr>
+</div>
+{% endfor %}
+{% endblock content %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center">{{ review.pk }}번째 REVIEW</h1>
+
+<div class="container">
+  <h3>{{ review.title }}</h3>
+  <p>{{ review.movie_title }}</p>
+  <p>{{ review.content }}</p>
+  <p>{{ review.rank }}</p>
+  <p>{{ review.created_at }}</p>
+  <p>{{ review.updated_at }}</p>
+  <hr>
+  <form action="{% url 'community:like' review.pk %}">
+    {% if request.user in review.like_users.all %}
+    <p>좋아요 <b>{{ review.like_users.all|length }}</b></a></p>
+    <button class="text-danger">
+    
+      <svg  width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+      </svg>
+    </button>
+      <div class="d-flex">
+      
+ 
+  </div>
+  
+    {% else %}
+    <p>좋아요 <b>{{ review.like_users.all|length }}</b></a></p>
+      <button>
+      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+      </svg>
+    </button>
+    {% endif %}
+  </form>
+  <!-- comments_list -->
+  {% for comment in comments %}
+    <li>
+      {{ comment.user }} - {{ comment.content }}
+      {% if request.user == comment.user %}
+        <!-- comments_delete -->
+        <form action="{% url 'community:comments_delete' review.pk comment.pk %}" method="POST" class="d-inline">
+          {% csrf_token %}
+          <input type="submit" value="DELETE">
+        </form>
+      {% endif %}
+    </li>
+  {% empty %}
+    <p>댓글을 작성해주세요.</p>
+  {% endfor %}
+  <hr>
+  <!-- comment_form -->
+  {% if request.user.is_authenticated %}
+  <form action="{% url 'community:comments_create' review.pk %}" method="POST">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <input type="submit">
+  </form>>
+  {% endif %}
+  <a href="{% url 'community:review_list' %}">BACK</a>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+  <h1 class="display-4">{{ person.username }}의 프로필</h1>
+    {% if person.introduce %}
+      <p>{{ person.introduce }}</p>
+    {% else %}
+      <p>안녕하세요! {{ person.username}} 입니다! </p>
+    {% endif %}
+  
+  {% if request.user == person %}
+  <form action="" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input value="프로필정보 수정하기" type="submit">
+  </form>
+  
+  
+  {% endif %}
+  
+
+
+  <hr class="my-4">
+  <!-- follow/ unfollow-->
+  <div class="d-flex">
+  <p> <a href="{% url 'community:person_review_list' person.pk %}">게시물 <b>{{ person.review_set.all|length }}</b></a></p>
+  <p class="ml-5"><a href="{% url 'accounts:followers' person.pk %}">팔로워<b> {{ person.followers.all|length }} </b></a></p>
+  <p class="ml-5"><a href="{% url 'accounts:followings' person.pk %}">팔로잉<b> {{ person.followings.all|length }} </b></a></p>
+  
+  </div>
+  
+    {% if request.user != person  %}
+    <form action="{% url 'accounts:follow' person.pk %}" method="POST">
+     {% csrf_token %} 
+     {% if request.user in person.followers.all %}
+       <button class="btn btn-secondary">Unfollow</button>  
+     {% else %}
+       <button class="btn btn-primary">Follow</button>  
+     {% endif %}
+    </form>
+    {% endif %}
+ </div>
+
+
+<div class="card" style="width: 42rem;">
+  {% comment %} <img src="..." class="card-img-top" alt="..."> {% endcomment %}
+  <div class="card-body">
+    <h5 class="card-title">{{ person.username}} 님이 작성한 REVIEW</h5>
+    <hr style="border:solid 1px">
+    <p class="card-text">
+    {% for review in person.review_set.all %}
+  <p>{{ review.pk }}번째 REVIEW- {{ review.title}} </p>
+    <p>제목: {{review.movie_title}}</p>
+    <p>내용: {{review.content}}</p>
+    <hr>
+
+{% endfor %}</p>
+  
+
+    <h5 class="card-title">{{ person.username}} 님이 작성한 COMMENT </h5>
+    <hr style="border:solid 1px">
+    <p class="card-text">{% for comment in person.comment_set.all %}
+  <p>{{ comment.pk }}번째 COMMENT - {{ comment.content}} </p>
+{% endfor %}</p>
+
+
+    <h5 class="card-title">{{ person.username}} 님이 좋아요 한 REVIEWS</h5>
+    <hr style="border:solid 1px">
+    <p class="card-text">
+    {% for review in person.comment_set.all %}
+      <p>{{ review.title }} </p>
+    {% endfor %}</p>
+      <a href="{% url 'community:review_list' %}" class="btn btn-primary">BACK</a>
+  </div>
+</div>
+
+
+
+
+
+
+
+<a href="{% url 'community:review_list' %}"></a>
+
+{% endblock content %}
