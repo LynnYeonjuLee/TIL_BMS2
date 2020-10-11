@@ -1,7 +1,0 @@
-A, B = map(int,input().split())
-
-while B < 10:
-    if A != 0 and B != 0:
-        print(f'{A+B}')
-    elif B == 0:
-        break 
