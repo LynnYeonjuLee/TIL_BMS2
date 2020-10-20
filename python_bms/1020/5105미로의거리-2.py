@@ -16,7 +16,7 @@ for t in range(1, T+1):
         for j in range(N): # x!!!
             if maze[i][j] == 2:
                 q = deque()
-                q.append((i,j))
+                q.append((i,j,0))
                 # 지나간 부분은 상관없는 숫자 4 로 바꿔주기
                 maze[i][j] = 4
     while q:
@@ -34,14 +34,15 @@ for t in range(1, T+1):
                 continue
             # 0인 경우 
             if maze[ny][nx] == 0:
-                q.append((ny,nx))
+                q.append((ny,nx,q_pop[2]+1)) # 원래 있었던 위치에서 거리 값을 1씩 더해준다.
                 # 지나간 부분은 상관없는 숫자 4 로 바꿔주기
                 maze[ny][nx] = 4
             # 3. 3일 경우 길이 있다는 것 !
             if maze[ny][nx] == 3:
-                result = 1
+                result = q_pop[2]
                 break                             
                 # # 이 부분이 틀린지 모르겠다... 훔 ..
                 # i = ny
                 # j = nx
+            
     print('#{} {}'.format(t, result))

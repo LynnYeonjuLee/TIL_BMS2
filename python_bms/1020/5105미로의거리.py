@@ -3,7 +3,7 @@ def isSafe(y,x):
 
 def dfsr(sy, sx):
     global result
-
+    global cnt 
     if maze[sy][sx] == 3:
         result = 1
         return
@@ -31,5 +31,6 @@ for t in range(1, T+1):
 
     visited = []
     result = 0
+    cnt = 1
     dfsr(sy, sx)
     print('#{} {}'.format(t, result))

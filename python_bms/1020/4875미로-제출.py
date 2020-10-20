@@ -1,3 +1,4 @@
+# dfs, bfs 둘 다 가능한 문제 
 def isSafe(y,x):
     return 0<=y<N and 0<=x<N and (maze[y][x] == 0 or maze[y][x] == 3)
 
@@ -23,6 +24,7 @@ for t in range(1, T+1):
 
     for y in range(N):
         for x in range(N):
+            # 시작점 찾기 : 2일 때 
             if maze[y][x] == 2:
                 sy, sx = y,x
 
