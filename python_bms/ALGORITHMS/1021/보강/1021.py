@@ -15,8 +15,21 @@ for i in adj_arr:
 
 
 # 인접리스트
-T = int(input())
-for t in range(1, T+1):
-    N, K = list(map(int,input().split()))
-    for i in range(N):
-        nums = list(map(int,input()))
+# T = int(input())
+# for t in range(1, T+1):
+#     N, K = list(map(int,input().split()))
+#     for i in range(N):
+#         nums = list(map(int,input()))
+Garr = [[-1 for _ in range(8)] for _ in range(8)]
+Glist = [[] for _ in range(8)]
+inval = list(map(int,input().split()))
+for i in range(len(inval)//2):
+    val1 = inval[i*2]
+    val2 = inval[i*2+1]
+    Garr[val1][val2] = 1
+    Garr[var2][var1] = 1
+
+    Glist[val1].append(val2)
+    Glist[val2].append(val1)
+print(Garr)
+print(Glist)
