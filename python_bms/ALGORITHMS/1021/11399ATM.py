@@ -7,3 +7,4 @@ for i in new_mins:
     cnt += i
     result_list.append(cnt)
 print(sum(result_list))
+

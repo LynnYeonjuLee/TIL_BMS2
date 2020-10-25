@@ -13,7 +13,6 @@ def result(nums, col):
             # 문자열 + 문자열 = 문자열이니까 
             ans[i][col] += nums[i][j]
 
-
 T = int(input())
 for t in range(1, T+1):
     N = int(input())
