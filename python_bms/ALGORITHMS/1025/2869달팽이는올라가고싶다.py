@@ -1,11 +1,8 @@
-A, B, V = list(map(int,input().split()))
+# 시간초과남
+A, B, V = map(int,input().split())
 snail = 0
-day = 0
-while snail < V:
-    snail += A
-    if snail > V:
-        day -= 1
-    else:
-        snail -= B
-    day += 1
-print(day)
+if (V-B) % (A-B) != 0:
+    snail = ((V-B)//(A-B)) + 1
+else:
+    snail = ((V-B)//(A-B))
+print(snail)

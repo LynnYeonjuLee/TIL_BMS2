@@ -42,3 +42,4 @@ if -1 in result:
     print(-1)
 else: 
     print(day-1)
+    
