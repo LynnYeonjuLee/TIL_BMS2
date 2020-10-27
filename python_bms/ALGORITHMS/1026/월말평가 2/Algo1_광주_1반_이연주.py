@@ -3,7 +3,8 @@ def rotate90(nums_list):
     temp = [[-1] * N for i in range(N)]
     for r in range(Y-1,Y+K-1):
         for c in range(X-1,X+K-1):
-            temp[c+1][X+K-r] = nums_list[r][c]
+            # temp[c+1][Y-1+K-r] = nums_list[r][c]
+            temp[c][(K-1)-r+(Y-1)] = nums_list[r][c]
 
     return temp
 
@@ -19,7 +20,6 @@ for t in range(1, T+1):
     if X+K-1 > N or Y+K-1 > N:
         result = -1
     else:
-
         if (C//90)%4 == 1:
             nums_list = rotate90(nums_list)
         elif (C//90)%4 == 2: # 180
