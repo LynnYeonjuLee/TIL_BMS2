@@ -7,7 +7,7 @@ for t in range(1, T+1):
         arr[card] += 1
     max_std = 0
     max_idx = 0
-    print(arr)
+    # print(arr)
     for i in range(len(arr)):
         if arr[i] > max_std:
             max_std = arr[i] 

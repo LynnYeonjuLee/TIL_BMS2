@@ -48,7 +48,7 @@ for i in range(N-1):
         else:
             newarr[j-1] += arr[j]
             newarr[j+1] += arr[j]
-        # newarr[j] %= 1000000000
+        newarr[j] %= 1000000000
     arr = newarr
     # print(newarr)
 print(sum(arr)%1000000000)

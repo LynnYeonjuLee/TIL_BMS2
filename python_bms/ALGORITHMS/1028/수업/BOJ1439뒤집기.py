@@ -3,7 +3,7 @@ cnt0 = S.count(0)
 cnt1 = S.count(1)
 # 0 으로 바꾸는 횟수와 
 # 1로 바꾸는 횟수를 나누어 생각해보자. ?
-
+열고
 while cnt0 != len(S) and cnt1 != len(S):
 # 만약에 0의 개수가 1의 개수보다 많다면    
     if cnt0 > cnt1:
