@@ -12,9 +12,9 @@ for t in range(1, 1+T):
             new_sum = 0
             for j in range(len(A)):
                 new_sum += A[j]*B[i+j] 
-                compare.append(new_sum)
+            compare.append(new_sum)
         result = max(compare)
-        print(compare)
+        # print(compare)
 
     else:
         for i in range(len(A)-len(B)+1):
@@ -22,9 +22,9 @@ for t in range(1, 1+T):
             new_sum = 0
             for j in range(len(B)):
                 new_sum += B[j]*A[i+j] 
-                compare.append(new_sum)
+            compare.append(new_sum)
         result = max(compare)
-        print(compare)
+        # print(compare)
     # for i in range(abs(len(B)-len(A))+1):
     #     if len(B) > len(A):
             

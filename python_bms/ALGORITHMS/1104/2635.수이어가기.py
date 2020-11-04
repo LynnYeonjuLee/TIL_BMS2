@@ -11,15 +11,10 @@ else:
         temp.append(i)
         while temp[-2]-temp[-1]>= 0:
             temp.append(temp[-2]-temp[-1])
-        # if temp[-2]-temp[-1] >= 0:
-        #     temp.append(temp[-2]-temp[-1])
-        # else:
             if stan_len < len(temp):
                 stan_len = len(temp)
                 cnt_l = temp
             
-
-# print(cnt_l)
 print(len(cnt_l))
 for l in cnt_l:
     print(l,end=' ')
