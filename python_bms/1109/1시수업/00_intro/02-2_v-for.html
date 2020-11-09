@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2. Vue Data --binding-- DOM</title>
+</head>
+<body>
+  <div id="ssafy">
+    <div v-for="todo in todos">
+      <!-- {{ todo }} -->
+      {{ todo.title }}
+      
+    </div>
+    <!-- {{ message }}
+    <ul>
+      <li>{{ todos }}</li>
+    </ul> -->
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    // 1. Vue 인스턴스와 DOM 을 연결한다(==바인딩한다). 
+    // 2. 모든 코드는 데이터 중심으로 작성한다. 
+    // (== 모든 이벤트 핸들링 & DOM 조작은 Vue에게 맡긴다.)
+    const app = new Vue({
+      el: '#ssafy',
+      data: {
+        message: 'hello world!!',
+        todos: [
+          { id: 1, title: 'todo1', completed: false},
+          { id: 2, title: 'todo2', completed: true},
+          { id: 3, title: 'todo3', completed: false},
+        ],
+      },
+    })
+  </script>
+</body>
+</html>
