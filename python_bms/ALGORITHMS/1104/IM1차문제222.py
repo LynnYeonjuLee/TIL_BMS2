@@ -13,9 +13,11 @@ for i in range(K):
         if pw[i] == sign[j]:
             cnt = 1
             sign_idx = j + 1
-        else:
-            continue
+            break
+        # else:
+        #     continue
     if cnt == 0:
         result = 0
         break
 print(result)
+NONONOONNON

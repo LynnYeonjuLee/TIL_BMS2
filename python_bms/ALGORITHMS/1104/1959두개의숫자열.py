@@ -3,12 +3,10 @@ for t in range(1, 1+T):
     N, M = map(int,input().split())
     A = list(map(int,input().split()))
     B = list(map(int,input().split()))
-    # temp = []
     compare = []
     result = 0
     if len(B) > len(A):
         for i in range(len(B)-len(A)+1):
-            # start = i
             new_sum = 0
             for j in range(len(A)):
                 new_sum += A[j]*B[i+j] 
