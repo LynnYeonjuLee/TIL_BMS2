@@ -1,0 +1,74 @@
+# 입력방법
+
+'''
+3 4
+0 1 0 0
+0 0 0 0
+0 0 1 0
+'''
+
+
+
+N, M = map(int,input().split())
+# 1. 리스트 생성하고 인덱스를 이용해서 각 행에 1차원 배열을 삽입
+list1 = []
+for i in range(N):
+    line = []
+    for j in range(M):
+        line = list(map(int, input().split()))
+    list1.append(line)
+print(list1)
+# 2. 빈 리스트를 생성하고 1차원 배열을 추가
+list2 = []
+for _ in range(N):
+    list2.append(list(map(int,input().split())))
+print(list2)
+# 3. 리스트 내포 [반복할내용  반복문]
+list3 = [[list(map(int,input().split()))] for i in range(N)]
+print(list3)
+
+
+
+# 1.
+N, M = map(int,input().split())
+
+mylist = [0 for _ in range(N)]
+for i in range(N):
+    mylist.[i] = list(map(int,input().split()))
+print(mylist)
+
+# 2.
+N, M = map(int,input().split())
+mylist = []
+for i in range(N):
+    mylist.append(list(map(int,input().split())))
+print(mylist)
+
+# 3.
+N, M = map(int,input().split())
+mylist = [list(map(int,input().split())) for i in range(N)]
+print(mylist)
+
+
+# 델타를 이용한 순회
+# 2차원 리스트의 한 좌표에서 네방향 (상하좌우)의 인접한 요소를 탐색
+
+arr = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+for row in arr:
+    # print(*row)
+dr = [-1, 0, 1, 0]
+dc = [0, 1, 0, -1]
+N = len(arr)
+M = len(arr[0])
+
+# 모든 좌표에 대해서 델타 탐색하기
+for r in range(N):
+    for c in range(M):
+        for k in ransge(4):
+            nr = r + dr[k]
+            nr = c + dc[k]
+            if nr < or nr >= N or nc < 0 or nc >= M:
+                continue
+            else:
+                print(arr[nr][nc], end=" ")
+        print()
